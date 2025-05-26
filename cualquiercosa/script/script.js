@@ -42,7 +42,18 @@ function obervar(elemento){
     let muestrica = document.getElementById("mostrado")
     muestrica.style.display = "block";
     axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${elemento}`)
-    muestrica.innerHTML = `
-    
-    `
+    .then((respuestica)=>{
+        let ingredientes = ""
+        for (let i =0; i<20;i++){
+            let numerito = `strIngredient${i}`
+            ingredientes += `${respuestica.data[0][numerito]}`
+        }
+        muestrica.innerHTML = `
+        <img src="${respuestica.data.meals[0].strMealThumb}">
+        <p>${respuestica.data.meals[0].strMeal}</p>
+        <p>${respuestica.data.meals[0].strCategory} ${respuestica.data.meals[0].strTags}</p>
+        <p>${ingredientes}</p>
+        <p>${respuestica.data.meals[0].strInstructions}</p>
+        `
+    })
 }
