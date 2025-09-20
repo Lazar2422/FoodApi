@@ -1,0 +1,208 @@
+body {
+    background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding-bottom: 4vw; /* espacio general abajo */
+}
+/* Encabezado */
+#encabezado {
+    background-color: rgb(255, 94, 0);
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#encabezado p {
+    margin: 0;
+    font-size: 3vw;
+    font-style: italic;
+    color: white;
+}
+
+/* Welcome text */
+.textowelcome {
+    background-color: #1e1e1e; /* color de fondo para que destaque */
+    margin: 2vw auto;           /* espacio arriba y abajo */
+    padding: 1.5vw;             /* relleno interno */
+    border-radius: 1vw;         /* bordes redondeados */
+    width: 90%;
+    text-align: center;
+    color: white;
+    font-size: 1.2vw;
+}
+
+/* Opcional: agregar un pequeño shadow para resaltar */
+.textowelcome {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Contenedores principales */
+#contenedor {
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 2vw;
+}
+
+#main-content {
+    margin-top: 4%;
+    width: 100%;
+}
+
+/* Contenedores de recetas y búsquedas */
+#second-content,
+#searched {
+    margin: 2vw auto; /* separa de encabezado y entre secciones */
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    text-align: center;
+    font-size: 1vw;
+}
+
+/* Cada receta */
+.imagenesadd {
+    max-width: 12vw;
+    margin-bottom: 2vw; /* más espacio entre filas */
+}
+
+/* Imagenes dentro de receta */
+.imagencita {
+    width: 10vw;
+    height: auto;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
+
+/* Input y botón de búsqueda */
+#main-content input {
+    font-size: 1vw;
+    width: 20vw;
+    height: 3vh;
+    border-radius: 0.5vw;
+    margin: 0.5vw auto 1.5vw auto; /* margen arriba y abajo */
+    display: block;
+}
+
+/* Modal */
+#mostrado {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 700px;
+    max-height: 80%;
+    background-color: rgb(255, 94, 0);
+    border-radius: 1vw;
+    display: none;
+    overflow-y: auto;
+    padding: 2vw;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+/* Imagen centrada en modal */
+#mostrado img {
+    width: 60%;
+    height: auto;
+    border-radius: 0.5vw;
+    margin-bottom: 1vw;
+}
+
+#mostrado h2 {
+    margin: 1vw 0;
+}
+
+#mostrado .ingredientes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1vw;
+    text-align: left;
+    margin: 1vw 0;
+}
+
+#mostrado p {
+    margin-bottom: 1vw;
+}
+
+/* Botón cerrar */
+#mostrado button {
+    margin-top: 1vw;
+    padding: 0.5vw 1vw;
+    font-size: 1vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #second-content,
+    #searched {
+        gap: 4vw;
+    }
+    .imagenesadd {
+        max-width: 25vw;
+        margin-bottom: 3vw;
+    }
+    .imagencita {
+        width: 20vw;
+    }
+    #main-content input {
+        width: 40vw;
+        font-size: 2vw;
+        margin-bottom: 3vw;
+    }
+    #mostrado img {
+        width: 80%;
+    }
+    #mostrado .ingredientes {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    #mostrado p, #mostrado h2 {
+        font-size: 2vw;
+    }
+    #mostrado button {
+        font-size: 2vw;
+        padding: 1vw 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #second-content,
+    #searched {
+        gap: 6vw;
+    }
+    .imagenesadd {
+        max-width: 35vw;
+        margin-bottom: 4vw;
+    }
+    .imagencita {
+        width: 30vw;
+    }
+    #main-content input {
+        width: 60vw;
+        font-size: 3vw;
+        margin-bottom: 4vw;
+    }
+    #mostrado img {
+        width: 90%;
+    }
+    #mostrado .ingredientes {
+        grid-template-columns: 1fr;
+    }
+    #mostrado p, #mostrado h2 {
+        font-size: 3vw;
+    }
+    #mostrado button {
+        font-size: 3vw;
+        padding: 1.5vw 3vw;
+    }
+}
